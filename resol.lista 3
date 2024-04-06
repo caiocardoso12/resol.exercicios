@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <iomanip> // Para manipulação de saída
+
+using namespace std;
+
+// Função para calcular o consumo de combustível por litro (km/l)
+double calcularConsumo(double litros, double quilometros) {
+    return quilometros / litros;
+}
+
+int main() {
+    vector<double> consumoPorTanque;
+    double litros, quilometros;
+
+    // Loop para coletar os dados de entrada
+    while (true) {
+        cout << "Digite a quantidade de litros abastecidos (ou digite 0 para sair): ";
+        cin >> litros;
+        if (litros == 0)
+            break; // Sai do loop se o usuário digitar 0
+
+        cout << "Digite a quantidade de quilômetros percorridos: ";
+        cin >> quilometros;
+
+        double consumo = calcularConsumo(litros, quilometros);
+        consumoPorTanque.push_back(consumo);
+    }
+
+    // Calculando a média do consumo geral
+    double totalQuilometros = 0.0;
+    double totalLitros = 0.0;
+
+    for (double consumo : consumoPorTanque) {
+        totalQuilometros += consumo;
+        totalLitros += 1.0; // Cada elemento em consumoPorTanque representa um tanque cheio
+    }
+
+    double mediaConsumoGeral = totalQuilometros / totalLitros;
+
+    // Imprimindo os resultados
+    cout << "\nConsumo de cada tanque (km/l):\n";
+    int i = 1;
+    for (double consumo : consumoPorTanque) {
+        cout << "Tanque " << i++ << ": " << fixed << setprecision(2) << consumo << " km/l\n";
+    }
+
+    cout << "\nMédia de consumo geral: " << fixed << setprecision(2) << mediaConsumoGeral << " km/l\n";
+
+    return 0;
+}
