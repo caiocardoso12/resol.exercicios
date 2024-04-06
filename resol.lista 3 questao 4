@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero, digito1, digito2, digito4, digito5;
+    
+    // Solicita ao usuário que insira o número de cinco dígitos
+    cout << "Digite um número de cinco dígitos: ";
+    cin >> numero;
+    
+    // Separa cada dígito do número
+    digito1 = numero / 10000; // Obtém o primeiro dígito
+    digito2 = (numero % 10000) / 1000; // Obtém o segundo dígito
+    // O terceiro dígito não precisa ser separado, pois não afeta a verificação de palíndromo
+    digito4 = (numero % 100) / 10; // Obtém o quarto dígito
+    digito5 = numero % 10; // Obtém o quinto dígito
+    
+    // Verifica se o número é um palíndromo
+    if (digito1 == digito5 && digito2 == digito4) {
+        cout << "O número " << numero << " é um palíndromo." << endl;
+    } else {
+        cout << "O número " << numero << " não é um palíndromo." << endl;
+    }
+    
+    return 0;
+}
