@@ -1,0 +1,51 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    double num1, num2;
+    char operador;
+    
+    // Solicita ao usuário que insira os dois números reais
+    cout << "Digite o primeiro número: ";
+    cin >> num1;
+    
+    cout << "Digite o segundo número: ";
+    cin >> num2;
+    
+    // Solicita ao usuário que insira o operador (+, -, * ou /)
+    cout << "Digite o operador (+, -, * ou /): ";
+    cin >> operador;
+    
+    // Realiza a operação indicada pelo operador usando o comando switch
+    double resultado;
+    switch (operador) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                resultado = num1 / num2;
+            } else {
+                cout << "Erro: Divisão por zero!" << endl;
+                return 1; // Saída do programa com erro
+            }
+            break;
+        default:
+            cout << "Operador inválido!" << endl;
+            return 1; // Saída do programa com erro
+    }
+    
+    // Imprime o resultado da operação
+    cout << fixed << setprecision(2); // Define a precisão para duas casas decimais
+    cout << "Resultado: " << num1 << " " << operador << " " << num2 << " = " << resultado << endl;
+    
+    return 0;
+}
