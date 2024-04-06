@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero_binario, digito, posicao = 1, decimal = 0;
+
+    // Solicita ao usuário que insira o número binário
+    cout << "Digite um número binário (0s e 1s): ";
+    cin >> numero_binario;
+
+    // Converte o número binário para decimal
+    while (numero_binario > 0) {
+        // Obtém o dígito mais à direita do número binário
+        digito = numero_binario % 10;
+        // Atualiza o valor decimal multiplicando o dígito pelo valor posicional
+        decimal += digito * posicao;
+        // Move para o próximo dígito binário
+        numero_binario /= 10;
+        // Incrementa a posição (posicional) multiplicativa
+        posicao *= 2;
+    }
+
+    // Exibe o valor decimal correspondente ao número binário inserido
+    cout << "O número binário " << numero_binario << " em decimal é: " << decimal << endl;
+
+    return 0;
+}
