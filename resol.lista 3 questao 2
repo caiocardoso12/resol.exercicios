@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double precoEtanol, precoGasolina;
+    
+    // Solicita ao usuário que insira os preços do etanol e da gasolina
+    cout << "Digite o preço do litro de etanol: ";
+    cin >> precoEtanol;
+    
+    cout << "Digite o preço do litro de gasolina: ";
+    cin >> precoGasolina;
+    
+    // Calcula a relação de preços entre etanol e gasolina
+    double relacaoPreco = precoEtanol / precoGasolina;
+    
+    // Verifica se o etanol vale a pena (preço do etanol é até 70% do preço da gasolina)
+    if (relacaoPreco < 0.7) {
+        cout << "Recomendação: Abasteça com etanol." << endl;
+    } else {
+        cout << "Recomendação: Escolha gasolina." << endl;
+    }
+    
+    return 0;
+}
